@@ -1,8 +1,15 @@
 import React from 'react'
 
-const WeatherCard = () => {
+const WeatherCard = ({weatherDetails}) => {
+   //  console.log(weatherDetails);
   return (
-    <div>WeatherCard</div>
+    <div className="weather-section">
+        <div className="weather-card">
+            <div className="weather-temp-c">
+                {weatherDetails.current.temp_c}
+            </div>
+        </div>
+    </div>
   )
 }
 

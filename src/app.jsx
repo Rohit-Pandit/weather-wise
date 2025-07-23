@@ -6,12 +6,12 @@ import WeatherCard from "./components/WeatherCard"
 
 export function App() {
   const [weatherDetails, SetweatherDetails] = useState(null)
-
+ 
   return (
     <>
     <Header/>
-    <Search/>
-   {weatherDetails &&  <WeatherCard/>}
+    <Search SetweatherDetails={SetweatherDetails}/>
+   {weatherDetails &&  <WeatherCard weatherDetails={weatherDetails} />}
     <Footer/>
     </>
   )

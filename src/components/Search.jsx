@@ -1,11 +1,35 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-const Search = () => {
+const Search = ({SetweatherDetails}) => {
   const [search, setSearch] = useState("");
   const handleInput = (e) => {
     setSearch(e.target.value);
   };
   
+const handleKeyDown = async (e)=>{
+    if(e.key != "Enter")return;
+
+    const options = {
+	method: 'GET',
+	url: 'https://weatherapi-com.p.rapidapi.com/current.json',
+    params:{q:search},
+	headers: {
+		'x-rapidapi-key': import.meta.env.VITE_API_KEY,
+		'x-rapidapi-host': 'weatherapi-com.p.rapidapi.com'
+	}
+   };
+
+   try {
+    const response  = await axios.request(options);
+   // console.log(response.data);
+    SetweatherDetails(response.data);
+   } catch (error) {
+    console.log(error);
+   }
+
+}
+
   return (
     <div className="search-section">
       <div className="search-container">
@@ -26,6 +50,7 @@ const Search = () => {
         <input type="text" 
         placeholder="Search for a city" 
         onChange={handleInput}
+        onKeyDown={handleKeyDown}
         />
       </div>
     </div>
