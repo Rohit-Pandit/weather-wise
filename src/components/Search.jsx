@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './Search.css'
 
 const Search = ({SetweatherDetails}) => {
   const [search, setSearch] = useState("");

@@ -1,10 +1,13 @@
-import house from '../assets/house.png'
+import house from '../assets/house.png';
+import './Footer.css'
 
 const Footer = () => {
   return (
-    <div>
+    <div className='footer'>
         <img src={house} alt="image not found" />
-        <h4>Made In India</h4>
+        <div className="foot">
+          <h4>Made In India❤️</h4>
+        </div>
         
     </div>
   )
