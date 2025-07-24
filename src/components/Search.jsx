@@ -5,6 +5,7 @@ const Search = ({SetweatherDetails}) => {
   const [search, setSearch] = useState("");
   const handleInput = (e) => {
     setSearch(e.target.value);
+   // setSearch(null);
   };
   
 const handleKeyDown = async (e)=>{
